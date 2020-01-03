@@ -3,11 +3,7 @@
 
 # Jabref和Zotero使用笔记
 
-[Homepage](https://elegantlatex.org/) | [Github](https://github.com/ElegantLaTeX/ElegantNote) | [Download](https://github.com/ElegantLaTeX/ElegantNote/releases)
-
-![License](https://img.shields.io/ctan/l/elegantnote.svg)
-![Github Version](https://img.shields.io/github/release/ElegantLaTeX/ElegantNote.svg)
-![Repo Size](https://img.shields.io/github/repo-size/ElegantLaTeX/ElegantNote.svg)
+[Homepage](https://github.com/zalois/note4JabrefandZotero) | [Github](https://github.com/zalois/note4JabrefandZotero) | [Download](https://github.com/zalois/note4JabrefandZotero)
 
 Jabref和Zotero都可以用来管理文献，提高嗑盐效率。
 本文主要记录的是添加文献条目到Jabref的文献库中的方法，以及如何在源文件中比较方便的一键引用参考文献条目。
