@@ -97,7 +97,7 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 			\bibliography{bib文件名1，bib文件名2，...}
 		\end{lstlisting}
 			\begin{note}
-				此处plain是参考文献列表格式，我国出版机构文后参考文献著录规则大部分采用的是国标\href{http://www.sac.gov.cn/SACSearch/outlinetemplet/gjbzcx.jsp}{GB/T 7714}，最新的是\href{http://www.scal.edu.cn/dxtsgxb/201906120155}{2015}年修订的\footnote{本文模板采用的文后参考文献著录规则就是GB/T 7714}。具体的格式要看您投稿的机构，一般都会提供相应格式的.bst配置文件。当然生猛的您可以自己手工修改相应的.bst文件，调整格式，见\href{https://blog.csdn.net/chikily_yongfeng/article/details/86553359}{\LaTeX 自定义参考文献格式（配置 bst）}。
+				此处plain是参考文献列表格式，我国出版机构文后参考文献著录规则大部分采用的是国标\href{http://www.sac.gov.cn/SACSearch/outlinetemplet/gjbzcx.jsp}{GB/T 7714}\cite{gbt7714_2015}，最新的是\href{http://www.scal.edu.cn/dxtsgxb/201906120155}{2015}年修订的\footnote{本文模板采用的文后参考文献著录规则就是GB/T 7714}。具体的格式要看您投稿的机构，一般都会提供相应格式的.bst配置文件。当然生猛的您可以自己手工修改相应的.bst文件，调整格式，见\href{https://blog.csdn.net/chikily_yongfeng/article/details/86553359}{\LaTeX 自定义参考文献格式（配置 bst）}\cite{noauthor_latex_nodate}。
 			\end{note}
 如果希望bib文件中所有文献都列出来，在这两句话前面再加一句话：
 		\begin{lstlisting}
@@ -144,13 +144,23 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 \begin{note}
 	如果您对文中引用文献的格式还有特别要求的话，请参考刘海洋等人写的书\cite{胡伟2013LATEX,刘海洋2013LATEX,陈志杰2006LATEX}。
 \end{note}
-
+\section{编译}
+如果是\TeX studio编辑器的话，直接点\includegraphics{pictures_17.png}（按F5效果同）或者\includegraphics{pictures_18.png}（按F6效果同）就可以了。
+如果您用的是别的编辑器（比如Vim，Emacs，WinEdit之类的），您需要执行如下四步\cite[第 380 页]{胡伟2013LATEX}：
+\begin{itemize}
+	\item 第一步：先编译.tex源文件一次，
+	\item 第二步：用bibTeX编译.bib文件，参考命令：
+		\begin{lstlisting}
+		bibtex   具体bib文件名
+		\end{lstlisting}
+	\item 第三、四步：编译.tex文件\textcolor{red}{两}次，就可以正确生成引用位置了（否则引用位置有可能会出现问号，形如[？]）。
+\end{itemize}
 \section{利益无关声明}
 本文涉及到的程序，除了WinEdt是商业软件外，其余如\TeX 系统，Jabref和Zotero文献管理器，Vim，Emacs，\TeX studio等文本编辑器都是开源软件。本文也是以开源协议发布的，欢迎大家在开源协议下自由修改分享。本文链接：\url{https://github.com/zalois/note4JabrefandZotero}
 \section{致谢}
 感谢创建\TeX 的Donald Ervin Knuth先生，感谢Jabref和Zotero的贡献者们。
 本文档套用的模板下载自\href{https://github.com/ElegantLaTeX/ElegantNote}{https://github.com/Elegant\LaTeX/ElegantNote}，感谢模板作者邓东升。\footnote{插播一个小广告：本文档系统环境：\href{https://mirrors.slackware.com/slackware/slackware64-current/}{Slackware64-Current} + \href{https://www.tug.org/texlive/}{\TeX live 2019} + \href{https://www.vim.org/}{Vim 8.2.76}}
-\nocite{*}
+%\nocite{*}
 %\bibliographystyle{plain}
 \bibliography{Jabref和Zotero使用笔记}
 \end{document}
