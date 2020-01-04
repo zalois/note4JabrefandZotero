@@ -1,6 +1,5 @@
 %!TEX program = xelatex
 \documentclass[cn,geye,cyan,normal,14pt]{elegantnote}
-\usepackage{hyperref}%使用超链接
 \usepackage{texnames}%输出\TeX家族标志符
 \title{Jabref和Zotero使用笔记}
 \author{\href{mailto:zalois@126.com}{zalois@126.com}}
@@ -85,7 +84,7 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 			\end{center}
 	\end{itemize}
 	\begin{note}
-在Windows系统下，如果用文本编辑器打开.bib文件是乱码，这是由于Windows创建的文本文件默认编码是ANSI，可以用“记事本”打开，“另存为”，编码格式选“utf8”，重新保存成utf8编码的文件即可。这样的操作也可以反过来，utf8编码的可以转成ANSI，适用于用传统编码的文本编辑器（如WinEdt）。\\
+在Windows系统下，如果用文本编辑器打开.tex或者.bib文件是乱码，这是由于Windows创建的文本文件默认编码是ANSI，可以用“记事本”打开，“另存为”，编码格式选“utf8”，重新保存成utf8编码的文件即可。这样的操作也可以反过来，utf8编码的可以转成ANSI，适用于用传统编码的文本编辑器（如WinEdt）。\\
 对于Zotero，强大在可以进行文献管理，可以从有标志的pdf文件里自动提取信息生成文献列表信息。对中文期刊支持很好，支持大陆版的DOI等，也可以导出生成.bib文件。
 	\end{note}
 \section{重点二：在\TeX 源文件中使用生成的参考文献列表}
@@ -138,7 +137,7 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 			\end{center}
 	然后在源文件对应位置用如下命令即可：
 	\begin{lstlisting}
-	\cite{具体bibkey值}
+	\cite{具体Bibtexkey值}
 	\end{lstlisting}
 \end{note}
 \begin{note}
@@ -149,7 +148,7 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 如果您用的是别的编辑器（比如Vim，Emacs，WinEdit之类的），您需要执行如下四步\cite[第 380 页]{胡伟2013LATEX}：
 \begin{itemize}
 	\item 第一步：先编译.tex源文件一次，
-	\item 第二步：用bibTeX编译.bib文件，参考命令：
+	\item 第二步：用\BibTeX 编译.bib文件，参考命令：
 		\begin{lstlisting}
 		bibtex   具体bib文件名
 		\end{lstlisting}
@@ -159,7 +158,7 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 本文涉及到的程序，除了WinEdt是商业软件外，其余如\TeX 系统，Jabref和Zotero文献管理器，Vim，Emacs，\TeX studio等文本编辑器都是开源软件。本文也是以开源协议发布的，欢迎大家在开源协议下自由修改分享。本文链接：\url{https://github.com/zalois/note4JabrefandZotero}
 \section{致谢}
 感谢创建\TeX 的Donald Ervin Knuth先生，感谢Jabref和Zotero的贡献者们。
-本文档套用的模板下载自\href{https://github.com/ElegantLaTeX/ElegantNote}{https://github.com/Elegant\LaTeX/ElegantNote}，感谢模板作者邓东升。\footnote{插播一个小广告：本文档系统环境：\href{https://mirrors.slackware.com/slackware/slackware64-current/}{Slackware64-Current} + \href{https://www.tug.org/texlive/}{\TeX live 2019} + \href{https://www.vim.org/}{Vim 8.2.76}}
+本文档套用的模板下载自\href{https://github.com/ElegantLaTeX/ElegantNote}{https://github.com/Elegant\LaTeX/ElegantNote}，感谢模板作者邓东升。\footnote{插播一个小广告：本文档系统环境：\href{https://mirrors.slackware.com/slackware/slackware64-current/}{Slackware64-Current} + \href{https://www.tug.org/texlive/}{\TeX live 2019} + \href{https://www.vim.org/}{Vim 8.2.83}}
 %\nocite{*}
 %\bibliographystyle{plain}
 \bibliography{Jabref和Zotero使用笔记}
