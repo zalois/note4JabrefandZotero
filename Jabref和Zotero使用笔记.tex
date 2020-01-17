@@ -16,7 +16,7 @@
 \maketitle
 \section{摘要}
 Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要记录的是添加文献条目到Jabref的文献库中的方法，以及如何在源文件中比较方便的一键引用参考文献条目。
-本文没有介绍具体参考文献列表格式及其制作；也没有介绍源文件中引用参考文献的样式的个性化修改。\footnote{本文适用人群：刚入门嗑盐，和作者一样，不想手工一条一条排序的人。%
+本文没有介绍具体参考文献列表格式及其制作；也没有介绍源文件中引用参考文献的样式的个性化修改。\footnote{本文适用人群：不想手工一条一条来参考文献排序的人。%
 \\不适用人群：通过手工一条一条排序调节嗑盐生活，并以此为乐的神人。}
 \section{关键词}
 参考文献，一键引用，文本编辑器
@@ -46,8 +46,8 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
   publisher = {American Mathematical Society ({AMS})},
 }
 \end{lstlisting}
-对于Jabref，添加.bib文献数据库的条目方法很多，手工一条条直接添加也可以。但是我们一般情况不用这么麻烦的，这里着重介绍两种添加参考文献条目的方法\footnote{这两种方法都需要在联网的情况下才能完成。}：
-\clearpage
+\subsection{利用Jabref中制作.bib文件}
+	对于Jabref，添加.bib文献数据库的条目方法很多，手工一条条直接添加也可以。但是我们一般情况不用这么麻烦的，这里着重介绍两种添加参考文献条目的方法\footnote{这两种方法都需要在联网的情况下才能完成。}：
 	\begin{itemize}
 		\item 第一类，对于有明确序号的如MathSciNet的MR，DOI，ArXiv，ISBN之类的文献，可以直接选择这里，
 			\begin{center}
@@ -84,13 +84,21 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 			\end{center}
 	\end{itemize}
 	\begin{note}
-在Windows系统下，如果用文本编辑器打开.tex或者.bib文件是乱码，这是由于Windows创建的文本文件默认编码是ANSI，可以用“记事本”打开，“另存为”，编码格式选“utf8”，重新保存成utf8编码的文件即可。这样的操作也可以反过来，utf8编码的可以转成ANSI，适用于用传统编码的文本编辑器（如WinEdt）。\\
-对于Zotero，强大在可以进行文献管理，可以从有标志的pdf文件里自动提取信息生成文献列表信息。对中文期刊支持很好，支持大陆版的DOI等，也可以导出生成.bib文件。
+在Windows系统下，如果用文本编辑器打开.tex或者.bib文件是乱码，这是由于Windows创建的文本文件默认编码是ANSI，可以用“记事本”打开，“另存为”，编码格式选“utf8”，重新保存成utf8编码的文件即可。这样的操作也可以反过来，utf8编码的可以转成ANSI，适用于用传统编码的文本编辑器（如WinEdt）。
 	\end{note}
-\section{重点二：在\TeX 源文件中使用生成的参考文献列表}
-\textcolor{red}{需要注意的是.bib文件和.tex文件最好放在同一文件夹下。如果不是，需要在源文件中指明具体的路径和文件名，不需要扩展名.bib。}
+\subsection{利用Zotero制作.bib文件}
+Zotero的好处：
 \begin{itemize}
-	\item 一般是在\TeX 源文件末尾加入这样两行：
+	\item 是一个免费易用的Firefox扩展，它最大优点是结合浏览器实现对在线文献数据库网页中的文献题录直接抓取。
+	\item 支持直接拖入pdf文件或者任意格式的附件，并自动提取pdf文档中的元数据生成文献条目信息。
+	\item 支持标签分类,可以管理文献。
+	\item 对中国知网等中文期刊支持很好，支持大陆版的DOI，ISBN等。
+	\item 支持导入导出.bib文件。
+\end{itemize}
+		Zotero也支持多种方式添加文献条目，可以参考前面Jabref的添加操作，此处不再赘述。
+\section{重点二：在\TeX 源文件中使用生成的参考文献列表}
+首先，需要注意的是\textcolor{red}{.bib文件和.tex文件最好放在同一文件夹下}。如果不是，需要在源文件中指明具体的路径和文件名，不需要扩展名.bib。\par
+其次，需要在\TeX 源文件末尾加入这样两行\footnote{其中第一行，有的模板中可能已经加上了，就不需要再加了，但第二行是必须的。}：
 		\begin{lstlisting}
 			\bibliographystyle{plain}
 			\bibliography{bib文件名1，bib文件名2，...}
@@ -103,7 +111,8 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 			\nocite{*}
 		\end{lstlisting}
 否则，只有前面引用的才会出现在生成的参考文献列表里。
-	\item 插入引用标志到文中具体位置，按如下“三步走”：
+\subsection{利用Jabref实现一键引用}
+	Jabref中，插入引用标志到文中具体位置，按如下“三步走”：
 		\begin{itemize}
 			\item 第一步，先在文本编辑器比如\TeX studio中，打开要编辑的.tex文件，把光标定位在要插入引用文献标志的位置；
 			\begin{center}
@@ -118,7 +127,6 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 			\includegraphics[width=0.618\textwidth]{pictures_14.png}
 			\end{center}
 		\end{itemize}
-\end{itemize}
 您会发现引用文献标志已经加到相应位置了，是不是很方便？有没有很惊喜？\\
 如果您的Jabref工具栏中没有\includegraphics{pictures_11.png}，您需要在菜单栏选\\
 ``Options''$\to$``Preferences''$\to$``External programs''，\\
@@ -126,8 +134,24 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 			\begin{center}
 			\includegraphics[width=0.618\textwidth]{pictures_10.png}
 			\end{center}
-\begin{note}
-	如果手工引用参考文献，直接复制对应文献条目的具体Bibtexkey值，
+\subsection{利用Zotero实现一键引用\cite{q_better_nodate}}
+Zotero的一键引用需要在Zotero中安装\href{https://retorque.re/zotero-better-bibtex/}{Better \BibTeX{} for Zotero} 插件\footnote{您可以在\url{https://github.com/retorquere/zotero-better-bibtex/releases}处下载到最新的Better \BibTeX{} for Zotero插件，扩展名是.xpi。}。实现一键引用，需要如下三步：
+\begin{itemize}
+	\item 安装Better \BibTeX\\
+		在Zotero的菜单中选择``Tools''$\to$ ``Add-ons''，再在弹出来的Add-ons Manager窗口中，右上角找到齿轮形状的``设置''按钮，鼠标左键单击，选择``Install Add-on From File...''，再找到刚下载的.xpi文件，按提示安装就可以了,中间可能需要重启Zotero两次。
+	\item 设置导出Quick Copy的默认格式\\
+		在Zotero的菜单中选择``Edit''$\to$ ``Preferences''，再在弹出来的 Zotero Preferences窗口中，找到``Export''项，有Quick Copy操作说明，在``Default Format''中找到``Better \BibTeX{} Citation Key Quick Copy''，选中即可。
+	\item 一键引用\\
+		最好先把光标定位在已经打开的编辑器中源文件的需要引用的位置，然后在Zotero中选中需要引用的参考文献条目，多选按住Ctrl键，在条目左边图标位置按住鼠标左键，直接拖到对应文本编辑器中需要引用的位置就可以了。
+		\begin{note}
+		对于\TeX studio编辑器，在选中文献条目上点击鼠标右键，会有``Push references to \TeX studio''选项，点击就可以添加到\TeX studio中的引用位置了。
+			\begin{center}
+			\includegraphics[width=0.618\textwidth]{pictures_19.png}
+			\end{center}
+		\end{note}
+\end{itemize}
+\subsection{手动引用参考文献}
+	如果需要手工引用参考文献，直接复制对应文献条目的具体Bibtexkey值，
 			\begin{center}
 			\includegraphics[width=0.618\textwidth]{pictures_15.png}
 			\end{center}
@@ -139,7 +163,6 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 	\begin{lstlisting}
 	\cite{具体Bibtexkey值}
 	\end{lstlisting}
-\end{note}
 \begin{note}
 	如果您对文中引用文献的格式还有特别要求的话，请参考刘海洋等人写的书\cite{胡伟2013LATEX,刘海洋2013LATEX,陈志杰2006LATEX}。
 \end{note}
@@ -158,7 +181,7 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 本文涉及到的程序，除了WinEdt是商业软件外，其余如\TeX 系统，Jabref和Zotero文献管理器，Vim，Emacs，\TeX studio等文本编辑器都是开源软件。本文也是以开源协议发布的，欢迎大家在开源协议下自由修改分享。本文链接：\url{https://github.com/zalois/note4JabrefandZotero}
 \section{致谢}
 感谢创建\TeX 的Donald Ervin Knuth先生，感谢Jabref和Zotero的贡献者们。
-本文档套用的模板下载自\href{https://github.com/ElegantLaTeX/ElegantNote}{https://github.com/Elegant\LaTeX/ElegantNote}，感谢模板作者邓东升。\footnote{插播一个小广告：本文档系统环境：\href{https://mirrors.slackware.com/slackware/slackware64-current/}{Slackware64-Current} + \href{https://www.tug.org/texlive/}{\TeX live 2019} + \href{https://www.vim.org/}{Vim 8.2.90}}
+本文档套用的模板下载自\href{https://github.com/ElegantLaTeX/ElegantNote}{https://github.com/Elegant\LaTeX/ElegantNote}，感谢模板作者邓东升。\footnote{插播一个小广告：本文档系统环境：\href{https://mirrors.slackware.com/slackware/slackware64-current/}{Slackware64-Current} + \href{https://www.tug.org/texlive/}{\TeX live 2019} + \href{https://www.vim.org/}{Vim 8.2.121}}
 %\nocite{*}
 %\bibliographystyle{plain}
 \bibliography{Jabref和Zotero使用笔记}
