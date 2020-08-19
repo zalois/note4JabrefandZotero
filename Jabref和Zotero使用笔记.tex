@@ -72,14 +72,27 @@ Jabref和Zotero都可以用来管理文献，提高嗑盐效率。本文主要�
 			\begin{center}
 			\includegraphics[width=0.618\textwidth]{pictures_06.png}
 			\end{center}
-			再用文本编辑器打开.bib文件，粘贴到最后位置即可，注意保存一下。\\
+			在JabRef主界面找到
+			\includegraphics{pictures_20.png}，
+			点击添加一个article条目
+			\begin{center}
+			\includegraphics[width=0.618\textwidth]{pictures_21.png}
+			\end{center}
+			找到图中鼠标所指``\{\}Bib\LaTeX{} Source''位置，全选下方文本框中的内容，用之前已经复制好的内容替代，结果如下
+			\begin{center}
+			\includegraphics[width=0.618\textwidth]{pictures_22.png}
+			\end{center}
+			由于原来的引用内容有误，此处手工把article改成book类了。修改完毕，按Ctrl+S保存下bib库文件。
+			\begin{note}
+			也用文本编辑器打开.bib文件，粘贴到最后位置即可，注意保存一下。\\
+			\end{note}
 对于谷歌学术，选择逗号，
 			\begin{center}
 			\includegraphics[width=0.618\textwidth]{pictures_07.png}
 			\end{center}
 			其余操作类似,最终是这样效果：
 			\begin{center}
-			\includegraphics[width=0.618\textwidth]{pictures_08.png}
+			\includegraphics[width=0.618\textwidth]{pictures_23.png}
 			\end{center}
 	\end{itemize}
 	\begin{note}
@@ -180,7 +193,7 @@ Zotero的一键引用需要在Zotero中安装\href{https://retorque.re/zotero-be
 本文涉及到的程序，除了WinEdt是商业软件外，其余如\TeX 系统，Jabref和Zotero文献管理器，Vim，Emacs，\TeX studio等文本编辑器都是开源软件。本文也是以开源协议发布的，欢迎大家在开源协议下自由修改分享。本文链接：\url{https://github.com/zalois/note4JabrefandZotero}
 \section{致谢}
 感谢创建\TeX 的Donald Ervin Knuth先生，感谢Jabref和Zotero的贡献者们。
-本文档套用的模板下载自\href{https://github.com/ElegantLaTeX/ElegantNote}{https://github.com/Elegant\LaTeX/ElegantNote}，感谢模板作者邓东升。\footnote{插播一个小广告：本文档系统环境：\href{https://mirrors.slackware.com/slackware/slackware64-current/}{Slackware64-Current} + \href{https://www.tug.org/texlive/}{\TeX live 2020} + \href{https://www.vim.org/}{Vim 8.2.0628}}
+本文档套用的模板下载自\href{https://github.com/ElegantLaTeX/ElegantNote}{https://github.com/Elegant\LaTeX/ElegantNote}，感谢模板作者邓东升。\footnote{插播一个小广告：本文档系统环境：\href{https://mirrors.slackware.com/slackware/slackware64-current/}{Slackware64-Current} + \href{https://www.tug.org/texlive/}{\TeX live 2020} + \href{https://www.vim.org/}{Vim 8.2.1456}}
 %\nocite{*}
 %\bibliographystyle{plain}
 \bibliography{Jabref和Zotero使用笔记}
